@@ -9,7 +9,7 @@ end_date = datetime.date.today()
 allWeeks = []
 allMonth = []
 # Loop through each month and get the first day
-current_date = start_date.replace(day=5)
+current_date = start_date.replace(day=1)
 while current_date <= end_date:
     allMonth.append(current_date)
     current_date = current_date + datetime.timedelta(days=32)
