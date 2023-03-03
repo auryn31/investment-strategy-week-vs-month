@@ -30,7 +30,7 @@ buyPriceMonth = 1000
 lastPrice = 0.0
 sumPriceMonth = years * 12 * buyPriceMonth
 currentStockAmountWeek = 0.0
-buyPriceWeek = 250
+buyPriceWeek = 12 * buyPriceMonth / 52
 sumPriceWeek = sumPriceMonth
 
 allPrices = []
@@ -76,7 +76,7 @@ print()
 print(f'Price if you buy every week on the first')
 print(f'CurrentStockAmount {currentStockAmountWeek}')
 print(f'Current Price ${lastPrice}')
-print(f'Money left ${sumPriceWeek}')
+print(f'Money left ${round(sumPriceWeek, 2)}')
 print(f'CurrentValue ${round(currentStockAmountWeek * lastPrice, 2)}')
 print(f'Difference {round(( currentStockAmountWeek  / currentStockAmountMonth   - 1) * 100, 2)}%')
 

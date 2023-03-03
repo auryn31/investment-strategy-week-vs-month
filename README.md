@@ -10,9 +10,9 @@ Money left $0
 CurrentValue $162591.18
 
 Price if you buy every week on the first
-CurrentStockAmount 61.20274804634179
+CurrentStockAmount 59.99910588032988
 Current Price $2706.79
-Money left $0
-CurrentValue $165662.99
-Difference 1.89%
+Money left $-0.0
+CurrentValue $162404.98
+Difference -0.11%
 ```
