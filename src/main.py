@@ -33,7 +33,7 @@ buyPriceMonth = 1000
 lastPrice = 0.0
 sumPriceMonth = years * 12 * buyPriceMonth
 currentStockAmountWeek = 0.0
-buyPriceWeek = 12 * buyPriceMonth / 52
+buyPriceWeek = buyPriceMonth / 4 
 sumPriceWeek = sumPriceMonth
 
 allPrices = []
@@ -100,12 +100,15 @@ print(f'Difference {round(( currentStockAmountWeek  / currentStockAmountMonth   
 
 pd.options.plotting.backend = "plotly"
 
-df_month = pd.read_csv('./amount_months.csv')
-df_weeks = pd.read_csv('./amount_weeks.csv')
+df_month = pd.read_csv('./amount_months.csv', parse_dates=['Date'])
+df_month.index =  pd.to_datetime(df_month['Date'])
+df_weeks = pd.read_csv('./amount_weeks.csv', parse_dates=['Date'])
+df_weeks.index =  pd.to_datetime(df_weeks['Date'])
 
-df = pd.merge(df_month, df_weeks, how="inner", on="Date")
+tol = pd.Timedelta('3 day')
+# df = pd.merge(df_month, df_weeks, how="left", on="Date")
+df = pd.merge_asof(left=df_month,right=df_weeks,right_index=True,left_index=True,direction='nearest',tolerance=tol)
 
-print(df.head)
-fig = px.line(df, y = ['MSCI Stocks Month', 'MSCI Stocks Weeks'], x = 'Date', title='Invest the same monthly Sum', template="plotly_dark")
+fig = px.line(df, y = ['MSCI Stocks Month', 'MSCI Stocks Weeks'], x = 'Date_x', title='Invest the same total Sum', template="plotly_dark")
 # fig.show()
-fig.write_image("images/invest_same_monthly_sum.webp", width=1200, height=600)
+fig.write_image("images/invest_same_total_sum.webp", width=1200, height=600)
