@@ -1,0 +1,12 @@
+Price if you buy every month on the first
+CurrentStockAmount 59.08068490728991
+Current Price $2706.79
+Money left $0
+CurrentValue $159919.01
+
+Price if you buy every week on the first
+CurrentStockAmount 59.036277812906576
+Current Price $2706.79
+Money left $-0.0
+CurrentValue $159798.81
+Difference -0.08%

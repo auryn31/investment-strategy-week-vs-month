@@ -105,7 +105,6 @@ df_weeks = pd.read_csv('./amount_weeks.csv')
 
 df = pd.merge(df_month, df_weeks, how="inner", on="Date")
 
-print(df.head)
 fig = px.line(df, y = ['MSCI Stocks Month', 'MSCI Stocks Weeks'], x = 'Date', title='Invest the same monthly Sum', template="plotly_dark")
 # fig.show()
 fig.write_image("images/invest_same_monthly_sum.webp", width=1200, height=600)
