@@ -33,7 +33,7 @@ buyPriceMonth = 1000
 lastPrice = 0.0
 sumPriceMonth = years * 12 * buyPriceMonth
 currentStockAmountWeek = 0.0
-buyPriceWeek = buyPriceMonth / 4 
+buyPriceWeek = 12 * buyPriceMonth / 4 
 sumPriceWeek = sumPriceMonth
 
 allPrices = []
